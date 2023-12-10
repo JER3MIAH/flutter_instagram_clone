@@ -24,8 +24,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final List _pages = const <Widget>[
     HomeView(),
     SearchPage(),
-    ReelsPage(),
     ShopPage(),
+    ReelsPage(),
     ProfilePage(),
   ];
 
@@ -40,8 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'search'),
-          BottomNavigationBarItem(icon: Icon(Icons.video_call), label: 'reels'),
           BottomNavigationBarItem(icon: Icon(Icons.shop), label: 'shop'),
+          BottomNavigationBarItem(icon: Icon(Icons.video_call), label: 'reels'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'profile'),
         ],
       ),
