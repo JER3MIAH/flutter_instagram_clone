@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_instagram_clone/ui/features/home/views/home_view.dart';
+import 'package:flutter_instagram_clone/ui/features/profile/pages/profile_page.dart';
+import 'package:flutter_instagram_clone/ui/features/reels/pages/reels_page.dart';
+import 'package:flutter_instagram_clone/ui/features/search/pages/search_page.dart';
+import 'package:flutter_instagram_clone/ui/features/shop/pages/shop_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -16,12 +21,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  final List pages = <Widget>[
-    const Center(child: Text('Home')),
-    const Center(child: Text('Search')),
-    const Center(child: Text('reels')),
-    const Center(child: Text('shop')),
-    const Center(child: Text('profile')),
+  final List pages = const <Widget>[
+    HomeView(),
+    SearchPage(),
+    ReelsPage(),
+    ShopPage(),
+    ProfilePage(),
   ];
 
   @override
