@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Instagram Clone',
-      theme: ThemeData(),
+      theme: ThemeData(primarySwatch: Colors.grey),
       home: const MyHomePage(),
     );
   }

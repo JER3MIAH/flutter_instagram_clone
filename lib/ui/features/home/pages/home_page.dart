@@ -21,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  final List pages = const <Widget>[
+  final List _pages = const <Widget>[
     HomeView(),
     SearchPage(),
     ReelsPage(),
@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[_selectedIndex],
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
