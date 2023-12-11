@@ -23,7 +23,7 @@ class SearchPage extends StatelessWidget {
           ),
         ),
       ),
-      body: CustomGridView(),
+      body: const CustomGridView(),
     );
   }
 }
