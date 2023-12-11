@@ -30,11 +30,12 @@ class AuthService {
     String res = "Some error Occurred";
     try {
       if (email.isNotEmpty ||
-          password.isNotEmpty ||
-          username.isNotEmpty ||
-          bio.isNotEmpty ||
-          // ignore: unnecessary_null_comparison
-          file != null) {
+              password.isNotEmpty ||
+              username.isNotEmpty ||
+              bio.isNotEmpty
+          // ||
+          // file != null
+          ) {
         // registering user in auth with email and password
         UserCredential cred = await _auth.createUserWithEmailAndPassword(
           email: email,
