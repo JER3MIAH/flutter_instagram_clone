@@ -3,7 +3,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_instagram_clone/common/utils/colors.dart';
 import 'package:flutter_instagram_clone/common/utils/utils.dart';
 import 'package:flutter_instagram_clone/common/widgets/follow_button.dart';
 import 'package:flutter_instagram_clone/logic/services/auth_service.dart';
@@ -69,13 +68,14 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).colorScheme;
     return isLoading
         ? const Center(
             child: CircularProgressIndicator(),
           )
         : Scaffold(
             appBar: AppBar(
-              backgroundColor: mobileBackgroundColor,
+              backgroundColor: theme.background,
               title: Text(
                 userData['username'],
               ),
@@ -119,8 +119,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                         ? FollowButton(
                                             text: 'Sign Out',
                                             backgroundColor:
-                                                mobileBackgroundColor,
-                                            textColor: primaryColor,
+                                                theme.background,
+                                            textColor: theme.primary,
                                             borderColor: Colors.grey,
                                             function: () async {
                                               await AuthService().signOut();

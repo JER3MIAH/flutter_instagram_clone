@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'package:flutter_instagram_clone/common/utils/colors.dart';
 import 'package:flutter_instagram_clone/common/utils/utils.dart';
 import 'package:flutter_instagram_clone/common/widgets/text_field_input.dart';
 import 'package:flutter_instagram_clone/logic/services/auth_service.dart';
@@ -10,7 +9,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:svg_flutter/svg.dart';
 
 class SignupScreen extends StatefulWidget {
-  const SignupScreen({Key? key}) : super(key: key);
+  const SignupScreen({super.key});
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();
@@ -79,6 +78,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).colorScheme;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -94,7 +94,7 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               SvgPicture.asset(
                 'assets/ic_instagram.svg',
-                color: primaryColor,
+                color: theme.primary,
                 height: 64,
               ),
               const SizedBox(
@@ -166,18 +166,18 @@ class _SignupScreenState extends State<SignupScreen> {
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(vertical: 12),
-                  decoration: const ShapeDecoration(
-                    shape: RoundedRectangleBorder(
+                  decoration: ShapeDecoration(
+                    shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(4)),
                     ),
-                    color: blueColor,
+                    color: Theme.of(context).colorScheme.tertiary,
                   ),
                   child: !_isLoading
                       ? const Text(
                           'Sign up',
                         )
-                      : const CircularProgressIndicator(
-                          color: primaryColor,
+                      : CircularProgressIndicator(
+                          color: theme.primary,
                         ),
                 ),
               ),

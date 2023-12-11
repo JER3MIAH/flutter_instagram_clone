@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_instagram_clone/common/utils/colors.dart';
 import 'package:flutter_instagram_clone/ui/features/profile/pages/profile_page.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -19,7 +18,7 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         title: Form(
           child: TextFormField(
             controller: searchController,

@@ -3,7 +3,6 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_instagram_clone/common/utils/colors.dart';
 import 'package:flutter_instagram_clone/common/utils/utils.dart';
 import 'package:flutter_instagram_clone/logic/providers/user_provider.dart';
 import 'package:flutter_instagram_clone/logic/services/firestore_service.dart';
@@ -130,7 +129,7 @@ class _AddPostPageState extends State<AddPostPage> {
           )
         : Scaffold(
             appBar: AppBar(
-              backgroundColor: mobileBackgroundColor,
+              backgroundColor: Theme.of(context).colorScheme.background,
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back),
                 onPressed: clearImage,

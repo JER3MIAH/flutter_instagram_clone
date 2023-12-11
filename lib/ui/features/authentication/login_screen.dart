@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_instagram_clone/common/utils/colors.dart';
 import 'package:flutter_instagram_clone/common/utils/utils.dart';
 import 'package:flutter_instagram_clone/common/widgets/text_field_input.dart';
 import 'package:flutter_instagram_clone/logic/services/auth_service.dart';
@@ -56,6 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).colorScheme;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SvgPicture.asset(
                 'assets/ic_instagram.svg',
-                color: primaryColor,
+                color: theme.primary,
                 height: 64,
               ),
               const SizedBox(
@@ -100,18 +100,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(vertical: 12),
-                  decoration: const ShapeDecoration(
-                    shape: RoundedRectangleBorder(
+                  decoration: ShapeDecoration(
+                    shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(4)),
                     ),
-                    color: blueColor,
+                    color: Theme.of(context).colorScheme.tertiary,
                   ),
                   child: !_isLoading
                       ? const Text(
                           'Log in',
                         )
-                      : const CircularProgressIndicator(
-                          color: primaryColor,
+                      : CircularProgressIndicator(
+                          color: theme.primary,
                         ),
                 ),
               ),

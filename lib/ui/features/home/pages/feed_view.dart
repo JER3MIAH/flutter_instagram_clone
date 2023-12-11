@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_instagram_clone/common/utils/colors.dart';
 import 'package:flutter_instagram_clone/common/widgets/post_card.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -14,21 +13,22 @@ class FeedView extends StatefulWidget {
 class _FeedViewState extends State<FeedView> {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).colorScheme;
     return Scaffold(
-      backgroundColor: mobileBackgroundColor,
+      backgroundColor: theme.background,
       appBar: AppBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor: theme.background,
         centerTitle: false,
         title: SvgPicture.asset(
           'assets/ic_instagram.svg',
-          colorFilter: const ColorFilter.mode(primaryColor, BlendMode.srcIn),
+          colorFilter: ColorFilter.mode(theme.primary, BlendMode.srcIn),
           height: 32,
         ),
         actions: [
           IconButton(
-            icon: const Icon(
+            icon: Icon(
               Icons.messenger_outline,
-              color: primaryColor,
+              color: theme.primary,
             ),
             onPressed: () {},
           ),
