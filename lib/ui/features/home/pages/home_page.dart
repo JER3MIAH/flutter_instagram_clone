@@ -1,9 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_instagram_clone/ui/features/add_post/pages/add_post_page.dart';
 import 'package:flutter_instagram_clone/ui/features/home/views/home_view.dart';
 import 'package:flutter_instagram_clone/ui/features/profile/pages/profile_page.dart';
 import 'package:flutter_instagram_clone/ui/features/reels/pages/reels_page.dart';
 import 'package:flutter_instagram_clone/ui/features/search/pages/search_page.dart';
-import 'package:flutter_instagram_clone/ui/features/shop/pages/shop_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -21,12 +22,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  final List _pages = const <Widget>[
-    HomeView(),
-    SearchPage(),
-    ShopPage(),
-    ReelsPage(),
-    ProfilePage(),
+  final List _pages = <Widget>[
+    const HomeView(),
+    const SearchPage(),
+    const AddPostPage(),
+    const ReelsPage(),
+    ProfilePage(uid: FirebaseAuth.instance.currentUser!.uid),
   ];
 
   @override
