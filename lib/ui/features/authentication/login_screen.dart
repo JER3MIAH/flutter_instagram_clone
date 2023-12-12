@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SvgPicture.asset(
                 'assets/ic_instagram.svg',
-                color: theme.primary,
+                colorFilter: ColorFilter.mode(theme.primary, BlendMode.srcIn),
                 height: 64,
               ),
               const SizedBox(
