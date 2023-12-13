@@ -6,6 +6,7 @@ import 'package:flutter_instagram_clone/ui/features/home/pages/feed_view.dart';
 import 'package:flutter_instagram_clone/ui/features/profile/pages/profile_page.dart';
 import 'package:flutter_instagram_clone/ui/features/reels/pages/reels_page.dart';
 import 'package:flutter_instagram_clone/ui/features/search/pages/search_page.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -46,20 +47,26 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).colorScheme;
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: theme.background,
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
+        selectedItemColor: theme.primary,
         onTap: _onTap,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'search'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.add_circle_outline), label: 'post'),
-          BottomNavigationBarItem(icon: Icon(Icons.video_call), label: 'reels'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'profile'),
+              icon: Icon(FontAwesomeIcons.house), label: 'home'),
+          BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.magnifyingGlass), label: 'search'),
+          BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.plus), label: 'post'),
+          BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.video), label: 'reels'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person_2, size: 29), label: 'profile'),
         ],
       ),
     );
