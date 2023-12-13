@@ -45,15 +45,17 @@ class _FeedViewState extends State<FeedView> {
           }
           return ListView.builder(
             itemCount: snapshot.data!.docs.length,
-            itemBuilder: (ctx, index) => Container(
-              margin: const EdgeInsets.symmetric(
-                horizontal: 0,
-                vertical: 0,
-              ),
-              child: PostCard(
-                snap: snapshot.data!.docs[index].data(),
-              ),
-            ),
+            itemBuilder: (ctx, index) {
+              return Container(
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 0,
+                  vertical: 0,
+                ),
+                child: PostCard(
+                  snap: snapshot.data!.docs[index].data(),
+                ),
+              );
+            },
           );
         },
       ),

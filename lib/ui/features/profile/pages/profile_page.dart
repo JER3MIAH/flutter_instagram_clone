@@ -11,7 +11,7 @@ import 'package:flutter_instagram_clone/ui/features/authentication/login_screen.
 
 class ProfilePage extends StatefulWidget {
   final String uid;
-  const ProfilePage({Key? key, required this.uid}) : super(key: key);
+  const ProfilePage({super.key, required this.uid});
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -19,7 +19,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   var userData = {};
-  int postLen = 0;
+  int postLength = 0;
   int followers = 0;
   int following = 0;
   bool isFollowing = false;
@@ -47,7 +47,7 @@ class _ProfilePageState extends State<ProfilePage> {
           .where('uid', isEqualTo: FirebaseAuth.instance.currentUser!.uid)
           .get();
 
-      postLen = postSnap.docs.length;
+      postLength = postSnap.docs.length;
       userData = userSnap.data()!;
       followers = userSnap.data()!['followers'].length;
       following = userSnap.data()!['following'].length;
@@ -105,7 +105,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    buildStatColumn(postLen, "posts"),
+                                    buildStatColumn(postLength, "posts"),
                                     buildStatColumn(followers, "followers"),
                                     buildStatColumn(following, "following"),
                                   ],
@@ -116,24 +116,25 @@ class _ProfilePageState extends State<ProfilePage> {
                                   children: [
                                     FirebaseAuth.instance.currentUser!.uid ==
                                             widget.uid
-                                        ? FollowButton(
-                                            text: 'Sign Out',
-                                            backgroundColor:
-                                                theme.background,
-                                            textColor: theme.primary,
-                                            borderColor: Colors.grey,
-                                            function: () async {
-                                              await AuthService().signOut();
-                                              if (context.mounted) {
-                                                Navigator.of(context)
-                                                    .pushReplacement(
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        const LoginScreen(),
-                                                  ),
-                                                );
-                                              }
-                                            },
+                                        ? Expanded(
+                                            child: FollowButton(
+                                              text: 'Sign Out',
+                                              backgroundColor: theme.background,
+                                              textColor: theme.primary,
+                                              borderColor: Colors.grey,
+                                              onPressed: () async {
+                                                await AuthService().signOut();
+                                                if (context.mounted) {
+                                                  Navigator.of(context)
+                                                      .pushReplacement(
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const LoginScreen(),
+                                                    ),
+                                                  );
+                                                }
+                                              },
+                                            ),
                                           )
                                         : isFollowing
                                             ? FollowButton(
@@ -141,7 +142,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 backgroundColor: Colors.white,
                                                 textColor: Colors.black,
                                                 borderColor: Colors.grey,
-                                                function: () async {
+                                                onPressed: () async {
                                                   await FirestoreService()
                                                       .followUser(
                                                     FirebaseAuth.instance
@@ -160,7 +161,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 backgroundColor: Colors.blue,
                                                 textColor: Colors.white,
                                                 borderColor: Colors.blue,
-                                                function: () async {
+                                                onPressed: () async {
                                                   await FirestoreService()
                                                       .followUser(
                                                     FirebaseAuth.instance

@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_instagram_clone/ui/features/profile/pages/profile_page.dart';
+import 'package:flutter_instagram_clone/ui/features/search/widgets/custom_search_bar.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
   State<SearchPage> createState() => _SearchPageState();
@@ -20,11 +21,9 @@ class _SearchPageState extends State<SearchPage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.background,
         title: Form(
-          child: TextFormField(
+          child: CustomSearchBar(
             controller: searchController,
-            decoration:
-                const InputDecoration(labelText: 'Search for a user...'),
-            onFieldSubmitted: (String _) {
+            onFieldSubmitted: (_) {
               setState(() {
                 isShowUsers = true;
               });
