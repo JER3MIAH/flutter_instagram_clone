@@ -27,8 +27,17 @@ class _FeedViewState extends State<FeedView> {
         actions: [
           IconButton(
             icon: Icon(
-              Icons.messenger_outline,
+              Icons.favorite_border_outlined,
               color: theme.primary,
+              size: 30,
+            ),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: Image.asset(
+              'assets/send.png',
+              color: theme.primary,
+              scale: 22,
             ),
             onPressed: () {},
           ),

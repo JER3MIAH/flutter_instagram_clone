@@ -10,6 +10,7 @@ import 'package:flutter_instagram_clone/logic/services/firestore_service.dart';
 import 'package:flutter_instagram_clone/ui/features/home/views/comments_view.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:svg_flutter/svg.dart';
 
 class PostCard extends StatefulWidget {
   final snap;
@@ -84,7 +85,7 @@ class _PostCardState extends State<PostCard> {
               horizontal: 16,
             ).copyWith(right: 0),
             child: Row(
-              children: <Widget>[
+              children: [
                 CircleAvatar(
                   radius: 16,
                   backgroundImage: NetworkImage(
@@ -99,7 +100,7 @@ class _PostCardState extends State<PostCard> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
+                      children: [
                         Text(
                           widget.snap['username'].toString(),
                           style: const TextStyle(
@@ -154,7 +155,7 @@ class _PostCardState extends State<PostCard> {
               ],
             ),
           ),
-          // IMAGE SECTION OF THE POST
+          //* IMAGE SECTION
           GestureDetector(
             onDoubleTap: () {
               FirestoreService().likePost(
@@ -200,9 +201,9 @@ class _PostCardState extends State<PostCard> {
               ],
             ),
           ),
-          // LIKE, COMMENT SECTION OF THE POST
+          //* LIKE AND COMMENT
           Row(
-            children: <Widget>[
+            children: [
               LikeAnimation(
                 isAnimating: widget.snap['likes'].contains(user.uid),
                 smallLike: true,
@@ -211,9 +212,11 @@ class _PostCardState extends State<PostCard> {
                       ? const Icon(
                           Icons.favorite,
                           color: Colors.red,
+                          size: 30,
                         )
                       : const Icon(
                           Icons.favorite_border,
+                          size: 30,
                         ),
                   onPressed: () => FirestoreService().likePost(
                     widget.snap['postId'].toString(),
@@ -223,8 +226,10 @@ class _PostCardState extends State<PostCard> {
                 ),
               ),
               IconButton(
-                icon: const Icon(
-                  Icons.comment_outlined,
+                icon: SvgPicture.asset(
+                  'assets/instagram-comment-icon.svg',
+                  colorFilter: ColorFilter.mode(theme.primary, BlendMode.srcIn),
+                  height: 25,
                 ),
                 onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute(
@@ -235,25 +240,32 @@ class _PostCardState extends State<PostCard> {
                 ),
               ),
               IconButton(
-                  icon: const Icon(
-                    Icons.send,
+                  icon: Image.asset(
+                    'assets/send.png',
+                    color: Colors.white,
+                    scale: 20,
                   ),
                   onPressed: () {}),
               Expanded(
-                  child: Align(
-                alignment: Alignment.bottomRight,
-                child: IconButton(
-                    icon: const Icon(Icons.bookmark_border), onPressed: () {}),
-              ))
+                child: Align(
+                  alignment: Alignment.bottomRight,
+                  child: IconButton(
+                      icon: const Icon(
+                        Icons.bookmark_border,
+                        size: 30,
+                      ),
+                      onPressed: () {}),
+                ),
+              )
             ],
           ),
-          //DESCRIPTION AND NUMBER OF COMMENTS
+          //* DESCRIPTION AND NUMBER OF COMMENTS
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+              children: [
                 DefaultTextStyle(
                     style: Theme.of(context)
                         .textTheme
