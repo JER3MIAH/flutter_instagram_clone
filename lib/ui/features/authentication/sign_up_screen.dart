@@ -82,16 +82,12 @@ class _SignupScreenState extends State<SignupScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: Container(
+        child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32),
-          width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Flexible(
-                flex: 2,
-                child: Container(),
-              ),
               SvgPicture.asset(
                 'assets/ic_instagram.svg',
                 colorFilter: ColorFilter.mode(theme.primary, BlendMode.srcIn),
@@ -183,10 +179,6 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               const SizedBox(
                 height: 12,
-              ),
-              Flexible(
-                flex: 2,
-                child: Container(),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

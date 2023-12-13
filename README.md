@@ -1,16 +1,43 @@
-# flutter_instagram_clone
+# FLUTTER INSTAGRAM CLONE
 
-A new Flutter project.
+An instagram clone with all the basic features made with flutter and firebase
 
-## Getting Started
+## Table of contents
 
-This project is a starting point for a Flutter application.
+- [Screenshot](#screenshot)
+- [Built with](#built-with)
+- [Features](#features)
+- [Useful resources](#useful-resources)
+- [Feedback](#feedback)
 
-A few resources to get you started if this is your first Flutter project:
+### Screenshot
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+| <img src="./assets/screenshots/login_light.jpg" width="200" /> | <img src="./assets/screenshots/login_dark.jpg" width="200" /> |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Built with
+
+- Flutter
+- Dart
+- Provider
+- Firebase
+
+### Features
+
+- Email & Password Authentication
+- Real Time
+- Share Posts
+- Display Posts
+- Add Captions
+- Like & Comment on Posts
+- Search Users
+- Follow Users
+- Display User Posts, Followers & Following
+
+### Useful resources
+
+- [Firebase with flutter](https://firebase.google.com/docs/guides/) - This should help you get started with firebase as a beginner.
+- [Flutter documentation](https://docs.flutter.dev/) - Getting started with flutter.
+
+## Feedback
+
+Reac out out to me at <jeremiah.devv@gmail.com>
