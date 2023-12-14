@@ -55,6 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         selectedItemColor: theme.primary,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         onTap: _onTap,
         items: const [
           BottomNavigationBarItem(
@@ -66,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.video), label: 'reels'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_2, size: 29), label: 'profile'),
+              icon: Icon(Icons.person_2, size: 25), label: 'profile'),
         ],
       ),
     );

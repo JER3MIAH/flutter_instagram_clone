@@ -12,7 +12,7 @@ An instagram clone with all the basic features made with flutter and firebase
 
 ### Screenshot
 
-| <img src="./assets/screenshots/login_ligth.jpg" width="200" /> | <img src="./assets/screenshots/login_dark.jpg" width="200" /> |
+| <img src="./assets/screenshots/login_ligth.jpg" width="200" /> | <img src="./assets/screenshots/login_dark.jpg" width="200" /> | <img src="./assets/screenshots/home_ligth.jpg" width="200" /> | <img src="./assets/screenshots/home_dark.jpg" width="200" /> |
 
 ### Built with
 
